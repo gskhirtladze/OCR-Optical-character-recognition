@@ -6,9 +6,17 @@ def sort_regions(regions) :
             if ((stx1+enx1)/2 > enx2) :
                 regions[i],regions[j] = regions[j],regions[i]
                 continue
+            if ((stx2+enx2)/2 < stx1) :
+                regions[i],regions[j] = regions[j],regions[i]
+                continue
             if ((stx2+enx2)/2 > enx1) :
                 continue
+            if ((stx1+enx1)/2 < stx2) :
+                continue
             if ((sty1+eny1)/2 > eny2) :
+                regions[i],regions[j] = regions[j],regions[i]
+                continue
+            if ((sty2+eny2)/2 < eny1) :
                 regions[i],regions[j] = regions[j],regions[i]
                 continue
             if ((sty2+eny2)/2 > eny1) :
