@@ -12,7 +12,7 @@ def same( pixel_A , pixel_B ) :
 
     diff = 0.2126*R + 0.7152*G + 0.0722*B
 
-    if diff < 5 :
+    if diff < 15 :
         return True
 
     return False

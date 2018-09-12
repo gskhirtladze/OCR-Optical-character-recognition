@@ -17,7 +17,7 @@ for x in range(len(regions)) :
     print(aa,bb)
     for i in range (len(now)) :
         string =""
-        for j in range(len(now[0])-340,len(now[0])-124) :
+        for j in range(len(now[0])) :
             if (now[i][j]) :
                 string="".join((string,str(int('0')+int(now[i][j]))))
             else :
