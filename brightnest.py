@@ -9,7 +9,7 @@ def get_luminance(image , n_rows , n_columns):
             R = float(image[i][j][0])
             G = float(image[i][j][1])
             B = float(image[i][j][2])
-            lum[i][j] = ( luminance ( image[i][j] ) , ( R , G , B))
+            lum[i][j] = ( luminance ( image[i][j] ) , ( R , G , B) )
 
     return lum
 
