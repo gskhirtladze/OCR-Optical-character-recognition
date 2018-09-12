@@ -16,6 +16,3 @@ def get_luminance(image_path):
             lum[i][j] = luminance ( image[i][j] )
 
     return lum
-
-b = get_luminance("sampleImage/2.png")
-print(b)
