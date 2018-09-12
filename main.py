@@ -20,4 +20,4 @@ for x in range(len(regions)) :
     next = ""
     raw_input()
     
-    print("    ")
+    print("  ")
