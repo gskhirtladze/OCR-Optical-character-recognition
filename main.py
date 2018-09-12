@@ -13,7 +13,7 @@ regions = sort_regions(regions)
 
 print(len(regions))
 for x in range(len(regions)) :
-    (now,aa,bb,cc,dd)=regions[x]
+    (now,aa,bb,cc,dd) = regions[x]
     print(aa,bb,len(now)*len(now[0]))
     for i in range (len(now)) :
         string =""
