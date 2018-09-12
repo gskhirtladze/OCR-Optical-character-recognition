@@ -1,10 +1,6 @@
 import sys
+from compare_pixels import same
 sys.setrecursionlimit(1500)
-
-def same( A , B ) :
-    if (abs(A-B)) <= 20 :
-        return True
-    return False
 
 def get_block(region_id , st_x , st_y , en_x , en_y , id ) :
     block = [ [ 0 for _ in range(en_y-st_y+1) ] for _ in range(en_x-st_x+1) ]
@@ -14,7 +10,6 @@ def get_block(region_id , st_x , st_y , en_x , en_y , id ) :
                 block[i-st_x][j-st_y]=1
     return block
 
-
 def get_regions(luminance):
     
     n_rows = len(luminance)
@@ -23,17 +18,11 @@ def get_regions(luminance):
     n_regions = 0
     region_id = [ [0 for _ in range(n_columns)] for _ in range(n_rows) ]
     regions = []
-    
-    global st_x
-    global st_y
-    global en_x
-    global en_y
 
     for i in range(0,n_rows) :
         for j in range(0,n_columns) :
             if (region_id[i][j] == 0) :
                 n_regions =  n_regions + 1
-                n_pixels = 0
 
                 st_x = i 
                 st_y = j
@@ -57,7 +46,7 @@ def get_regions(luminance):
                     
                     dx = [ +0 , +0 , +1 , -1 , -1 , -1 , +1 , +1 , -2 , -2 , -2 , +2 , +2 , +2 , -1 , +0, +1 , -1 , +0 , +1 , -2 , -2 , +2 , +2 ]
                     dy = [ -1 , +1 , +0 , +0 , -1 , +1 , +1 , -1 , -1 , +0 , +1 , -1 , +0 , +1 , +2 , +2 ,+2 , -2 , -2 , -2 , -2 , +2 , -2 , +2 ]
-                    for dir in range(20) :
+                    for dir in range(24) :
                         tox = x + dx[dir]
                         toy = y + dy[dir]
                         if (tox < 0 or toy < 0 or tox >= len(region_id) or toy >= len(region_id[0])) :
@@ -71,7 +60,12 @@ def get_regions(luminance):
                 
                 current_region = get_block(region_id, st_x , st_y , en_x , en_y , n_regions)
                 region_size  = len(current_region)*len(current_region[0])
-                if (region_size > 200 and region_size < 10000) :
+                if (region_size > 300 and region_size < 1000000) :
                     regions.append( (current_region,st_x,st_y,en_x,en_y) )
     
+    #for i in range(0,n_rows) :
+    #    for j in range(0,n_columns) :
+    #        print(region_id[i][j]),
+    #    print()
+
     return regions

@@ -1,0 +1,17 @@
+def same( A , B ) :
+    (AL,ARGB) = A
+    (BL,BRGB) = B
+    
+    if (abs(AL-BL)) > 25 :
+        return False
+    
+    R = abs(ARGB[0]-BRGB[0])
+    G = abs(ARGB[1]-BRGB[1])
+    B = abs(ARGB[2]-BRGB[2])
+
+    diff = 0.2126*R + 0.7152*G + 0.0722*B
+
+    if diff < 20 :
+        return True
+
+    return False
