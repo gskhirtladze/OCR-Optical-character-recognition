@@ -7,12 +7,11 @@ def luminance(RGB):
 def get_luminance(image_path):
     image = misc.imread(image_path)
     n_rows = len(image)
-    n_columns = len(image)
-    lum=[[0.0 for _ in range(0,n_rows-1)] for _ in range(0,n_columns-1)]
+    n_columns = len(image[0])
+    lum=[[0.0 for _ in range(0,n_columns)] for _ in range(0,n_rows)]
 
-    print ( luminance(image[0][0]))
-    for i in range(0,n_rows-1) :
-        for j in range (0,n_columns-1) :
+    for i in range(0,n_rows) :
+        for j in range (0,n_columns) :
             lum[i][j] = luminance ( image[i][j] )
 
     return lum
