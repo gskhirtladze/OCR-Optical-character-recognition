@@ -4,7 +4,7 @@ from sort import sort_regions
 from compare_pixels import same
 from get_image import get_image
 
-image_path = "sampleImage/4.jpg" #raw_input("Enter Image path:")
+image_path = "sampleImage/2.png" #raw_input("Enter Image path:")
 image,n_rows,n_columns = get_image(image_path)
 luminance = get_luminance(image,n_rows,n_columns)
 regions = get_regions(luminance)
